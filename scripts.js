@@ -32,6 +32,7 @@ for (const { author, id, image, title } of matches.slice(0, BOOKS_PER_PAGE)) {
   starting.appendChild(card);
 }
 
+
 document.querySelector("[data-list-items]").appendChild(starting);
 
 const genreHtml = document.createDocumentFragment();
