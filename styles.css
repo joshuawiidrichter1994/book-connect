@@ -80,6 +80,25 @@ option {
   display: none;
 }
 
+.form {
+  display: flex;
+  justify-content: space-between; /* Distributes the items with space between them */
+  width: 100%;
+}
+
+.menu {
+  padding: 5px;
+}
+
+.menu-1 {
+  flex-grow: 20;
+}
+
+.menu-2, .menu-3 {
+  flex-grow: 3;
+  background-color: white;
+}
+
 @media (min-width: 30rem) {
   .header__shape {
     display: block;
