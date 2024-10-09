@@ -4,6 +4,7 @@
   --color-force-light: 255, 255, 255;
   --color-dark: 10, 10, 20;
   --color-light: 255, 255, 255;
+  --color-search-panel: white;
 
   --card-bg-color: #f4f4f4;
   --color-blue-hover: #0056b3;
@@ -31,7 +32,6 @@ body {
   margin: 0;
   padding: 20px;
 }
-
 
 option {
   background-color: rgba(var(--color-light), 1);
@@ -80,6 +80,14 @@ option {
   display: none;
 }
 
+/*
+  search panel and drop-down menus
+*/
+
+.search__panel {
+  background-color: var(--color-search-panel);
+}
+
 .form {
   display: flex;
   justify-content: space-between; /* Distributes the items with space between them */
@@ -87,7 +95,10 @@ option {
 }
 
 .menu {
-  padding: 5px;
+  padding: 10px;
+  border-radius: 20px;
+  border-color: lightgray;
+  margin: 5px;
 }
 
 .menu-1 {
@@ -98,6 +109,73 @@ option {
   flex-grow: 3;
   background-color: white;
 }
+
+/*
+  Day/Night toggle
+*/
+
+ /* The switch - the box around the slider */
+ .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+} 
 
 @media (min-width: 30rem) {
   .header__shape {
@@ -123,25 +201,6 @@ option {
   fill: rgba(var(--color-force-light), 1);
 }
 
-.header__button {
-  background-color: rgba(var(--color-force-light), 0.1);
-  transition: background-color 0.1s;
-  border-width: 0;
-  border-radius: 6px;
-  height: 2.5rem;
-  width: 2.5rem;
-  cursor: pointer;
-  margin-right: 0.25rem;
-}
-
-.header__button:hover {
-  background-color: rgba(var(--color-force-light), 0.2);
-}
-
-.header__button:active {
-  background-color: rgba(var(--color-force-light), 0.3);
-}
-
 /* Books landing page grid */
 
 .list {
@@ -157,9 +216,6 @@ option {
 .list__message_show {
   display: block;
 }
-
-
-
 
 @media (min-width: 50rem) {
   .list__items {
