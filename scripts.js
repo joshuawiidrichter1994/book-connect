@@ -126,6 +126,7 @@ document.querySelector("#theme-toggle").addEventListener("change", (event) => {
       document.documentElement.style.setProperty("--button-text-color", "#ffffff");  
       document.documentElement.style.setProperty("--color-force-dark", "10, 10, 20");  
       document.documentElement.style.setProperty("--header-bg-color", "20, 20, 30");  
+      document.documentElement.style.setProperty("--color-search-panel", "220, 220, 220");  
     
     } else {
       // Apply day theme
@@ -136,8 +137,8 @@ document.querySelector("#theme-toggle").addEventListener("change", (event) => {
       document.documentElement.style.setProperty("--color-blue-hover", "0, 150, 155;");
       document.documentElement.style.setProperty("--button-text-color", "#ffffff"); 
       document.documentElement.style.setProperty("--color-force-dark", "255, 255, 255"); 
-      document.documentElement.style.setProperty("--header-bg-color", "230, 230, 230"); 
-     
+      document.documentElement.style.setProperty("--header-bg-color", "20, 20, 30"); 
+      document.documentElement.style.setProperty("--color-search-panel", "255, 255, 255");
     }
   });
 

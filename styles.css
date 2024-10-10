@@ -1,11 +1,11 @@
 :root {
-  --color-blue: rgb(0, 150, 255);
-  --color-force-dark: rgb(10, 10, 20);
-  --color-force-light: rgb(255, 255, 255);
-  --color-dark: rgb(10, 10, 20); 
-  --color-light: rgb(255, 255, 255); 
-  --header-bg-color: rgb(20, 20, 30);
-  --color-search-panel: rgb(255, 255, 255);
+  --color-blue: 0, 150, 255;  
+  --color-force-dark: 10, 10, 20;  
+  --color-force-light: 255, 255, 255;
+  --color-dark: 10, 10, 20; 
+  --color-light: 255, 255, 255; 
+  --header-bg-color: 20, 20, 30;  
+  --color-search-panel: 255, 255, 255;
   --bg-opacity: 0.9;
   --card-bg-color: #f4f4f4;
   --color-blue-hover: #003d80; 
@@ -24,6 +24,7 @@
     --color-blue: 0, 150, 136;
     --color-blue-hover: 0, 122, 111;
     --button-text-color: #ffffff;
+    --header-bg-color:20,20,30;
   }
 }
 
@@ -65,8 +66,7 @@ option {
 /* header */
 
 .header {
-  background-color: rgba(var(--header-bg-color), 0.9);
-  padding: 10px;
+  background-color: rgba(var(--header-bg-color), 1);
   position: sticky;
   top: 0;
   left: 0;
@@ -77,9 +77,11 @@ option {
 .form,
 #search__box,
 .menu {
-  background-color: rgba(var(--color-force-light), 0.9);
+  background-color: rgba(var(--color-search-panel), 0.9);
   color: #ffffff;
 }
+
+
 
 .header__buttons {
   display: flex;
@@ -122,7 +124,7 @@ option {
 */
 
 .search__panel {
-  background-color: rgba(var(--color-force-light), var(--bg-opacity));
+  background-color: rgba(var(--color-search-panel), var(--bg-opacity));
 }
 
 .form {
