@@ -13,6 +13,7 @@
 }
 
 
+
 @media (prefers-color-scheme: dark) {
   :root {
     --color-dark: 235, 235, 245;
@@ -45,6 +46,7 @@ body {
   margin: 0;
   padding: 0;
 }
+
 
 option {
   background-color: rgba(var(--color-light), 1);
@@ -108,6 +110,11 @@ option {
   margin-right: 0.75rem;
   fill: rgb(var(--color-blue));
   display: none;
+}
+
+.header__text path{
+  fill: rgb(var(--color-blue));
+ 
 }
 
 /*
@@ -251,16 +258,23 @@ input:checked + .slider:before {
 
 @media (max-width: 480px) {
   #gridContainer {
-    grid-template-columns: repeat(2, minmax(160px, 1fr));
+    grid-template-columns: repeat(2, minmax(170px, 1fr));
     justify-content: center;
     grid-gap: 0.5rem;
-    margin: 0px;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
 
   .card .button {
+    flex-grow: 1;
     width: 100%;
-    height: 7vh;
-    border-radius: 15px;
+    font-size: 1em!important;
+    border-bottom-left-radius: 10px !important;
+    border-bottom-right-radius: 10px!important;
   }
 }
 
@@ -301,7 +315,7 @@ input:checked + .slider:before {
 
 .list__items {
   display: grid;
-  padding: 2rem 1rem;
+  padding: 1rem 0.5rem;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-column-gap: 0.5rem;
   gap: 20px;
@@ -314,8 +328,8 @@ input:checked + .slider:before {
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
-  padding: 10px;
-  height: 350px;
+  padding: 5px;
+  height: 350px; 
 }
 
 .card img {
@@ -324,7 +338,7 @@ input:checked + .slider:before {
   max-height: 200px;
   height: 200px;
   object-fit: fill;
-  border-radius: 15px 15px 0 0;
+  border-radius: 10px 10px 7px 7px;
   flex-shrink: 0;
 }
 
@@ -341,6 +355,7 @@ input:checked + .slider:before {
   color: gray;
   font-size: 0.9em;
   margin-bottom: 15px;
+  text-overflow: ellipsis;
 }
 
 .card .button {

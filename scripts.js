@@ -121,8 +121,8 @@ document.querySelector("#theme-toggle").addEventListener("change", (event) => {
       document.documentElement.style.setProperty("--color-dark", "235, 235, 245"); 
       document.documentElement.style.setProperty("--color-light", "18, 18, 28"); 
       document.documentElement.style.setProperty("--card-bg-color", "#1e1e28"); 
-      document.documentElement.style.setProperty("--color-blue", "0, 150, 136"); 
-      document.documentElement.style.setProperty("--color-blue-hover", "0, 255, 160"); 
+      document.documentElement.style.setProperty("--color-blue", "0, 255, 160"); 
+      document.documentElement.style.setProperty("--color-blue-hover", "0, 255, 165"); 
       document.documentElement.style.setProperty("--button-text-color", "#ffffff");  
       document.documentElement.style.setProperty("--color-force-dark", "10, 10, 20");  
       document.documentElement.style.setProperty("--header-bg-color", "20, 20, 30");  
