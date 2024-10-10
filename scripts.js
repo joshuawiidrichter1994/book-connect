@@ -102,7 +102,7 @@ document
     document.querySelector("[data-settings-overlay]").open = false;
   });
 
-document.querySelector("[data-header-settings]").addEventListener("click", () => {
+document.querySelector("[data-search-overlay]").addEventListener("click", () => {
   document.querySelector("[data-search-overlay]").open = true;
   document.querySelector("[data-search-title]").focus();
 });
@@ -114,6 +114,8 @@ document.querySelector("[data-list-close]").addEventListener("click", () => {
 
 document.querySelector("#theme-toggle").addEventListener("change", (event) => {
     const isNightMode = event.target.checked; 
+
+    console.log(isNightMode)
   
     if (isNightMode) {
       // Apply night theme
