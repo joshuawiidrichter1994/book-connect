@@ -115,7 +115,6 @@ document.querySelector("[data-list-close]").addEventListener("click", () => {
 document.querySelector("#theme-toggle").addEventListener("change", (event) => {
     const isNightMode = event.target.checked; 
 
-    console.log(isNightMode)
   
     if (isNightMode) {
       // Apply night theme
@@ -126,8 +125,8 @@ document.querySelector("#theme-toggle").addEventListener("change", (event) => {
       document.documentElement.style.setProperty("--color-blue-hover", "0, 255, 160"); 
       document.documentElement.style.setProperty("--button-text-color", "#ffffff");  
       document.documentElement.style.setProperty("--color-force-dark", "10, 10, 20");  
+      document.documentElement.style.setProperty("--header-bg-color", "20, 20, 30");  
     
-     
     } else {
       // Apply day theme
       document.documentElement.style.setProperty("--color-dark", "10, 10, 20");
@@ -136,7 +135,8 @@ document.querySelector("#theme-toggle").addEventListener("change", (event) => {
       document.documentElement.style.setProperty("--color-blue", "0, 150, 255"); 
       document.documentElement.style.setProperty("--color-blue-hover", "0, 150, 155;");
       document.documentElement.style.setProperty("--button-text-color", "#ffffff"); 
-      document.documentElement.style.setProperty("--color-force-dark", "28, 28, 36"); 
+      document.documentElement.style.setProperty("--color-force-dark", "255, 255, 255"); 
+      document.documentElement.style.setProperty("--header-bg-color", "230, 230, 230"); 
      
     }
   });
