@@ -5,17 +5,18 @@ let matches = books;
 
 const starting = document.createDocumentFragment();
 
+function getAuthorName( author , authors) {
+    const authorId = author;
+    return authors[authorId];
+  }
+
 for (const { author, id, image, title } of matches.slice(0, BOOKS_PER_PAGE)) {
   const card = document.createElement("div");
   card.classList = "card";
   card.setAttribute("data-preview", id);
 
-  function getAuthorName(authors) {
-    const authorId = author;
-    return authors[authorId];
-  }
 
-  const authorName = getAuthorName(authors);
+  const authorName = getAuthorName(author ,authors);
 
   card.innerHTML = `
       
@@ -65,24 +66,22 @@ for (const [id, name] of Object.entries(authors)) {
 
 document.querySelector("[data-search-authors]").appendChild(authorsHtml);
 
-if (
-  window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches
-) {
-  document.querySelector("[data-settings-theme]").value = "night";
-  document.documentElement.style.setProperty("--color-dark", "255, 255, 255");
-  document.documentElement.style.setProperty("--color-light", "10, 10, 20");
-} else {
-  document.querySelector("[data-settings-theme]").value = "day";
-  document.documentElement.style.setProperty("--color-dark", "10, 10, 20");
-  document.documentElement.style.setProperty("--color-light", "255, 255, 255");
-}
+if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    document.querySelector("#theme-toggle").checked = true; 
+    document.documentElement.style.setProperty("--color-dark", "255, 255, 255");
+    document.documentElement.style.setProperty("--color-light", "10, 10, 20");
+  } else {
+    document.querySelector("#theme-toggle").checked = false; 
+    document.documentElement.style.setProperty("--color-dark", "10, 10, 20");
+    document.documentElement.style.setProperty("--color-light", "255, 255, 255");
+  }
+  
 
 document.querySelector("[data-list-button]").innerText = `Show more (${
   books.length - BOOKS_PER_PAGE
 })`;
 document.querySelector("[data-list-button]").disabled =
-  matches.length - page * BOOKS_PER_PAGE > 0;
+  matches.length - page * BOOKS_PER_PAGE < 0;
 
 document.querySelector("[data-list-button]").innerHTML = `
     <span>Show more</span>
@@ -103,43 +102,41 @@ document
     document.querySelector("[data-settings-overlay]").open = false;
   });
 
-document.querySelector("[data-header-search]").addEventListener("click", () => {
+document.querySelector("[data-header-settings]").addEventListener("click", () => {
   document.querySelector("[data-search-overlay]").open = true;
   document.querySelector("[data-search-title]").focus();
 });
 
-document
-  .querySelector("[data-header-settings]")
-  .addEventListener("click", () => {
-    document.querySelector("[data-settings-overlay]").open = true;
-  });
 
 document.querySelector("[data-list-close]").addEventListener("click", () => {
   document.querySelector("[data-list-active]").open = false;
 });
 
-document
-  .querySelector("[data-settings-form]")
-  .addEventListener("submit", (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const { theme } = Object.fromEntries(formData);
-
-    if (theme === "night") {
-      document.documentElement.style.setProperty(
-        "--color-dark",
-        "255, 255, 255"
-      );
-      document.documentElement.style.setProperty("--color-light", "10, 10, 20");
+document.querySelector("#theme-toggle").addEventListener("change", (event) => {
+    const isNightMode = event.target.checked; 
+  
+    if (isNightMode) {
+      // Apply night theme
+      document.documentElement.style.setProperty("--color-dark", "235, 235, 245"); 
+      document.documentElement.style.setProperty("--color-light", "18, 18, 28"); 
+      document.documentElement.style.setProperty("--card-bg-color", "#1e1e28"); 
+      document.documentElement.style.setProperty("--color-blue", "0, 150, 136"); 
+      document.documentElement.style.setProperty("--color-blue-hover", "0, 255, 160"); 
+      document.documentElement.style.setProperty("--button-text-color", "#ffffff");  
+      document.documentElement.style.setProperty("--color-force-dark", "10, 10, 20");  
+    
+     
     } else {
+      // Apply day theme
       document.documentElement.style.setProperty("--color-dark", "10, 10, 20");
-      document.documentElement.style.setProperty(
-        "--color-light",
-        "255, 255, 255"
-      );
+      document.documentElement.style.setProperty("--color-light", "255, 255, 255");
+      document.documentElement.style.setProperty("--card-bg-color", "#f4f4f4"); 
+      document.documentElement.style.setProperty("--color-blue", "0, 150, 255"); 
+      document.documentElement.style.setProperty("--color-blue-hover", "0, 150, 155;");
+      document.documentElement.style.setProperty("--button-text-color", "#ffffff"); 
+      document.documentElement.style.setProperty("--color-force-dark", "28, 28, 36"); 
+     
     }
-
-    document.querySelector("[data-settings-overlay]").open = false;
   });
 
 document
@@ -190,20 +187,20 @@ document
       0,
       BOOKS_PER_PAGE
     )) {
-      const element = document.createElement("button");
-      element.classList = "preview";
+      const element = document.createElement("div");
+      element.classList = "card";
       element.setAttribute("data-preview", id);
+
+      const authorName = getAuthorName(author ,authors);
 
       element.innerHTML = `
             <img
-                class="preview__image"
-                src="${image}"
+            src="${image}"
+            alt="${title} Book Cover"
             />
-            
-            <div class="preview__info">
-                <h3 class="preview__title">${title}</h3>
-                <div class="preview__author">${authors[author]}</div>
-            </div>
+            <div class="title">${title}</div>
+            <div class="author">${authorName}</div>
+            <button class="button">View Details</button>
         `;
 
       newItems.appendChild(element);
@@ -212,7 +209,7 @@ document
     document.querySelector("[data-list-items]").appendChild(newItems);
     document.querySelector("[data-list-button]").disabled =
       matches.length - page * BOOKS_PER_PAGE < 1;
-
+      page++
     document.querySelector("[data-list-button]").innerHTML = `
         <span>Show more</span>
         <span class="list__remaining"> (${
@@ -226,35 +223,50 @@ document
     document.querySelector("[data-search-overlay]").open = false;
   });
 
-document.querySelector("[data-list-button]").addEventListener("click", () => {
-  const fragment = document.createDocumentFragment();
-
-  for (const { author, id, image, title } of matches.slice(
-    page * BOOKS_PER_PAGE,
-    (page + 1) * BOOKS_PER_PAGE
-  )) {
-    const element = document.createElement("button");
-    element.classList = "preview";
-    element.setAttribute("data-preview", id);
-
-    element.innerHTML = `
+  document.querySelector("[data-list-button]").addEventListener("click", () => {
+    const fragment = document.createDocumentFragment();
+  
+    // Loop through the books for the current page
+    for (const { author, id, image, title } of matches.slice(
+      page * BOOKS_PER_PAGE,
+      (page + 1) * BOOKS_PER_PAGE
+    )) {
+      const element = document.createElement("div");
+      element.classList = "card";
+      element.setAttribute("data-preview", id);
+  
+      const authorName = getAuthorName(author, authors);
+  
+      element.innerHTML = `
             <img
-                class="preview__image"
-                src="${image}"
+            src="${image}"
+            alt="${title} Book Cover"
             />
-            
-            <div class="preview__info">
-                <h3 class="preview__title">${title}</h3>
-                <div class="preview__author">${authors[author]}</div>
-            </div>
+            <div class="title">${title}</div>
+            <div class="author">${authorName}</div>
+            <button class="button">View Details</button>
         `;
-
-    fragment.appendChild(element);
-  }
-
-  document.querySelector("[data-list-items]").appendChild(fragment);
-  page += 1;
-});
+  
+      fragment.appendChild(element);
+    }
+  
+    // Append the fragment containing the new books
+    document.querySelector("[data-list-items]").appendChild(fragment);
+  
+    // Increment the page counter after books are added
+    page += 1;
+  
+    // Calculate remaining books
+    const remainingBooks = matches.length - page * BOOKS_PER_PAGE;
+  
+    if (remainingBooks > 0) {
+      document.querySelector("[data-list-button]").innerHTML = `
+          <span>Show more</span>
+          <span class="list__remaining"> (${remainingBooks})</span>
+      `;
+    } 
+  });
+  
 
 document
   .querySelector("[data-list-items]")

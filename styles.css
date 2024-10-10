@@ -6,16 +6,24 @@
   --color-light: 255, 255, 255;
 
   --card-bg-color: #f4f4f4;
-  --color-blue-hover: #0056b3;
-  --button-text-color:white;
+  --color-blue-hover: #003d80;
+  --button-text-color: #333333; 
+
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-dark:  255, 255, 255; 
-    --color-light: 10, 10, 20;
+    --color-dark:  235, 235, 245; 
+    --color-light: 18, 18, 28; 
+    --card-bg-color: #1e1e28; 
+    --color-force-dark: 28, 28, 36; 
+    --color-force-light: 245, 245, 255; 
+    --color-blue: 0, 150, 136; 
+    --color-blue-hover: 0, 122, 111; 
+    --button-text-color: #ffffff; 
   }
 }
+
 
 * {
   box-sizing: border-box;
@@ -30,6 +38,53 @@ body {
   background: linear-gradient(0deg, rgba(var(--color-dark), 0.2), rgba(var(--color-dark), 0.1)), rgba(var(--color-light), 1);
   margin: 0;
   padding: 20px;
+}
+
+/*Theme check point*/
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: black;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: rgba(var(--color-blue), 1);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
 }
 
 
@@ -54,6 +109,13 @@ option {
   position: sticky;
   top: 0;
   left: 0;
+}
+
+.header__buttons{
+  display: flex;
+  align-items: center;
+  justify-items:center;
+  gap: 15px;
 }
 
 .header__inner {
@@ -250,7 +312,7 @@ option {
   padding: 10px 20px;
   background-color: rgb(var(--color-blue));
   color: var(--button-text-color);
-  border: none;
+  border: 1px solid rgba(var(--color-blue), 1);
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
@@ -502,3 +564,4 @@ option {
 .overlay[open] ~ .backdrop {
   display: block;
 }
+
