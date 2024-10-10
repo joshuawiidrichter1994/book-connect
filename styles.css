@@ -66,7 +66,7 @@ option {
 /* header */
 
 .header {
-  background-color: rgba(var(--header-bg-color), 1);
+  background-color: rgba(var(--header-bg-color), 0.9);
   position: sticky;
   top: 0;
   left: 0;
@@ -78,10 +78,8 @@ option {
 #search__box,
 .menu {
   background-color: rgba(var(--color-search-panel), 0.9);
-  color: #ffffff;
+  color: gray;
 }
-
-
 
 .header__buttons {
   display: flex;
@@ -110,13 +108,12 @@ option {
 .header__shape {
   height: 1rem;
   margin-right: 0.75rem;
-  fill: rgb(var(--color-blue));
+  fill: rgb(var(--color-force-light));
   display: none;
 }
 
 .header__text path{
-  fill: rgb(var(--color-blue));
- 
+  fill: rgb(var(--color-force-light));
 }
 
 /*
@@ -148,7 +145,6 @@ option {
 .menu-2,
 .menu-3 {
   flex-grow: 3;
-  background-color: white;
 }
 
 /*
@@ -279,9 +275,6 @@ input:checked + .slider:before {
     border-bottom-right-radius: 10px!important;
     margin-bottom: 2px;
   }
-
-  
-
 }
 
 .list__button {
