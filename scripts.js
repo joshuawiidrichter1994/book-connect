@@ -1,5 +1,12 @@
 import { books, authors, genres, BOOKS_PER_PAGE } from "./data.js";
 
+const hMenu = document.querySelector('.hmenu');
+
+hMenu.addEventListener('click', () => {
+  hMenu.classList.toggle('active');
+  
+})
+
 let page = 1;
 let matches = books;
 
