@@ -446,6 +446,7 @@ span.s:nth-child(3) {
 
 .card .button:hover {
   background-color: var(--color-blue-hover);
+  color: rgba(var(--color-blue), 1);
 }
 
 /* preview */
