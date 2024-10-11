@@ -89,12 +89,12 @@ option {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 70rem;
   padding: 0 1rem;
-  margin: 0 auto;
+  margin: 0 0;
 }
 
 .header__logo {
+  width: 92%;
   padding: 1.5rem 0 1.5rem 0.5rem;
   display: flex;
   align-items: center;
