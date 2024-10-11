@@ -2,9 +2,11 @@ import { books, authors, genres, BOOKS_PER_PAGE } from "./data.js";
 
 const hMenu = document.querySelector('.hmenu');
 
+const offScreenMenu = document.querySelector('.off-screen-menu');
+
 hMenu.addEventListener('click', () => {
   hMenu.classList.toggle('active');
-  
+  offScreenMenu.classList.toggle('active');
 })
 
 let page = 1;

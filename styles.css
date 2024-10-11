@@ -279,6 +279,7 @@ nav {
   width: 25px;
   margin-left: auto;
   position: relative;
+  cursor: pointer;
 }
 
 span.s {
@@ -292,6 +293,7 @@ span.s {
   transform: translate(-50%, -50%);
   transition: .3s ease;
   position: absolute;
+  z-index: 2;
 }
 
 span.s:nth-child(1) {
@@ -313,7 +315,7 @@ span.s:nth-child(3) {
 
 .hmenu.active span:nth-child(3) {
   top: 50%;
-  transform: translate(-50%, 50%) rotate(-45deg);
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 .list__button {
@@ -331,6 +333,30 @@ span.s:nth-child(3) {
   max-width: 10rem;
   margin: 0 auto;
   display: block;
+}
+
+.off-screen-menu {
+  z-index: 1;
+  background-color: black;
+  height: 100vh;
+  width: 100%;
+  max-width: 300px;
+  top: 0;
+  position: fixed;
+  right: -300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  font-size: 1rem;
+  transition: .5 ease;
+  padding-top: 250px;
+  padding-bottom: 250px;
+  color: white;
+}
+
+.off-screen-menu.active {
+  right: 0;
 }
 
 .list__remaining {
