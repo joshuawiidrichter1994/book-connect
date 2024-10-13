@@ -349,7 +349,7 @@ span.s:nth-child(3) {
 .off-screen-menu {
   z-index: 1;
   background-color: white;
-  border: rgba(var(--color-dark), 0.9) solid;
+  border: rgb(58, 58, 58) solid 2px;
   border-radius: 3%;
   height: 50vh;
   width: 100%;
@@ -372,8 +372,10 @@ span.s:nth-child(3) {
 
 .menu-item {
   width: 180px;
-  padding: 10px 0px;
+  padding: 10px 10px;
   margin: 15px 0px;
+  font-weight: 600;
+  font-family: 'Poppins';
 }
 
 .list__remaining {
