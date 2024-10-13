@@ -366,6 +366,12 @@ span.s:nth-child(3) {
   right: 0;
 }
 
+.menu-item {
+  width: 180px;
+  padding: 10px 0px;
+  margin: 15px 0px;
+}
+
 .list__remaining {
   opacity: 0.5;
 }
