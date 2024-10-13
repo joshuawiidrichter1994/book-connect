@@ -350,7 +350,7 @@ span.s:nth-child(3) {
   z-index: 1;
   background-color: white;
   border: rgb(58, 58, 58) solid 2px;
-  border-radius: 3%;
+  border-radius: 5px;
   height: 50vh;
   width: 100%;
   max-width: 300px;
@@ -376,6 +376,7 @@ span.s:nth-child(3) {
   margin: 15px 0px;
   font-weight: 600;
   font-family: 'Poppins';
+  border-radius: 5px;
 }
 
 .list__remaining {
