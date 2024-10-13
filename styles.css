@@ -358,8 +358,6 @@ span.s:nth-child(3) {
   text-align: center;
   font-size: 1rem;
   transition: .5 ease;
-  padding-top: 250px;
-  padding-bottom: 250px;
   color: black;
 }
 
