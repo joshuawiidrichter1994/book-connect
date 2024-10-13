@@ -259,6 +259,10 @@ input:checked + .slider:before {
     justify-content: center;
     grid-gap: 0.5rem;
   }
+
+  .search__panel {
+    display: none;
+  }
   
   .card {
     display: flex;
