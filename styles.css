@@ -345,16 +345,17 @@ span.s:nth-child(3) {
 .off-screen-menu {
   z-index: 1;
   background-color: white;
-  border: black solid;
-  height: 100vh;
+  border: rgba(var(--color-dark), 0.9) solid;
+  border-radius: 3%;
+  height: 50vh;
   width: 100%;
   max-width: 300px;
   top: 60px;
   position: fixed;
   right: -300px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  padding: 100px 0px 0px 0px;
+  justify-content: center;
   text-align: center;
   font-size: 1rem;
   transition: .5 ease;
