@@ -348,7 +348,7 @@ span.s:nth-child(3) {
 
 .off-screen-menu {
   z-index: 1;
-  background-color: white;
+  background-color: rgba(var(--color-light));
   border: rgb(58, 58, 58) solid 2px;
   border-radius: 5px;
   height: 50vh;
